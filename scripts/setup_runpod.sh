@@ -19,7 +19,7 @@ python -m pip install --upgrade pip setuptools wheel
 
 echo "[4/6] Installing FLUXoFORUM"
 cd "$PROJECT_DIR"
-python -m pip install -r requirements.txt
+python -m pip install --upgrade -r requirements.txt
 python -m pip install --no-deps -e .
 
 echo "[5/6] Running diagnostics"

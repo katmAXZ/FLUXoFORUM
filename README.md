@@ -41,6 +41,11 @@ python scripts/predownload.py
 bash scripts/launch.sh
 ```
 
+If an earlier installation failed while resolving `safetensors`, update the
+project files and run `bash scripts/setup_runpod.sh` again. FLUXoFORUM pins
+Diffusers `0.37.1`, the latest tested release that includes
+`Flux2KleinPipeline` without requiring an unreleased safetensors package.
+
 Persistent paths default to:
 
 ```text

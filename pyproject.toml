@@ -11,7 +11,7 @@ requires-python = ">=3.10,<3.13"
 license = { text = "Apache-2.0" }
 dependencies = [
     "accelerate==1.10.1",
-    "diffusers @ git+https://github.com/huggingface/diffusers.git@main",
+    "diffusers==0.37.1",
     "gradio==5.49.1",
     "huggingface-hub==0.35.3",
     "imageio==2.37.0",
@@ -43,9 +43,6 @@ fluxoforum = "fluxoforum.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/fluxoforum"]
-
-[tool.hatch.metadata]
-allow-direct-references = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
