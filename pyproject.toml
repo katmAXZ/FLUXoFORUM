@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fluxoforum"
+version = "1.0.0"
+description = "Deforum-style FLUX.2 Klein animation for persistent RunPod GPUs"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "accelerate==1.10.1",
+    "diffusers @ git+https://github.com/huggingface/diffusers.git@main",
+    "gradio==5.49.1",
+    "huggingface-hub==0.35.3",
+    "imageio==2.37.0",
+    "imageio-ffmpeg==0.6.0",
+    "librosa==0.11.0",
+    "matplotlib==3.10.6",
+    "numpy==1.26.4",
+    "opencv-python-headless==4.11.0.86",
+    "pillow==11.3.0",
+    "pydantic==2.11.9",
+    "safetensors==0.6.2",
+    "scipy==1.15.3",
+    "soundfile==0.13.1",
+    "torch==2.8.0",
+    "torchao==0.13.0",
+    "torchvision==0.23.0",
+    "transformers==4.56.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.4.2",
+    "pytest-cov==7.0.0",
+    "ruff==0.13.2",
+]
+
+[project.scripts]
+fluxoforum = "fluxoforum.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fluxoforum"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+markers = [
+    "gpu: requires a CUDA GPU and downloaded Hugging Face models",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
